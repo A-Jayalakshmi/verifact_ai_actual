@@ -1,0 +1,12 @@
+{
+  "source": "https://fever.ai/download/fever/",
+  "page_selection": "most frequent pages referenced in training evidence only",
+  "pages_requested": 3000,
+  "sentences": 32803,
+  "dev_claims": 498,
+  "verifiable_dev_claims": 332,
+  "gold_evidence_set_present_in_corpus": 2,
+  "coverage_fraction": 0.006024096385542169,
+  "seed": 42,
+  "note": "Corpus selection limits recall; this is not a full 5.4-million-page FEVER benchmark."
+}

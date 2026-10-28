@@ -1,0 +1,866 @@
+{
+  "metrics": {
+    "n": 100,
+    "accuracy": 0.4,
+    "macro_f1": 0.30742435799644036,
+    "evidence_set_recall_at_k": 0.0,
+    "mean_latency_seconds": 0.1261560133400053,
+    "classification_report": {
+      "SUPPORTS": {
+        "precision": 1.0,
+        "recall": 0.05263157894736842,
+        "f1-score": 0.1,
+        "support": 38.0
+      },
+      "REFUTES": {
+        "precision": 0.4050632911392405,
+        "recall": 0.9142857142857143,
+        "f1-score": 0.5614035087719298,
+        "support": 35.0
+      },
+      "NOT ENOUGH INFO": {
+        "precision": 0.3157894736842105,
+        "recall": 0.2222222222222222,
+        "f1-score": 0.2608695652173913,
+        "support": 27.0
+      },
+      "accuracy": 0.4,
+      "macro avg": {
+        "precision": 0.5736175882744837,
+        "recall": 0.39637983848510167,
+        "f1-score": 0.30742435799644036,
+        "support": 100.0
+      },
+      "weighted avg": {
+        "precision": 0.607035309793471,
+        "recall": 0.4,
+        "f1-score": 0.3049260106788711,
+        "support": 100.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        2,
+        26,
+        10
+      ],
+      [
+        0,
+        32,
+        3
+      ],
+      [
+        0,
+        21,
+        6
+      ]
+    ],
+    "labels": [
+      "SUPPORTS",
+      "REFUTES",
+      "NOT ENOUGH INFO"
+    ]
+  },
+  "predictions": [
+    {
+      "id": 92625,
+      "claim": "Maximum Overdrive is a film from 1986.",
+      "gold": "SUPPORTS",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.7251338329951977
+    },
+    {
+      "id": 195824,
+      "claim": "Jeong Hyeong-don finished college in February 7.",
+      "gold": "NOT ENOUGH INFO",
+      "predicted": "REFUTES",
+      "evidence_hit": null,
+      "seconds": 0.1998253339988878
+    },
+    {
+      "id": 205286,
+      "claim": "There was zero genocides that took place in Rwanda.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.13292399999772897
+    },
+    {
+      "id": 135311,
+      "claim": "Robert Lorenz directed Trouble with the Curve.",
+      "gold": "SUPPORTS",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.13608216699503828
+    },
+    {
+      "id": 37112,
+      "claim": "TakePart is the digital division of Participant Media.",
+      "gold": "SUPPORTS",
+      "predicted": "NOT ENOUGH INFO",
+      "evidence_hit": false,
+      "seconds": 0.14307408300373936
+    },
+    {
+      "id": 185396,
+      "claim": "CHiPs is an American romance film.",
+      "gold": "REFUTES",
+      "predicted": "NOT ENOUGH INFO",
+      "evidence_hit": false,
+      "seconds": 0.10698933299863711
+    },
+    {
+      "id": 26887,
+      "claim": "Brazilian jiu-jitsu shunned Kodokan judo.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.12358437499642605
+    },
+    {
+      "id": 126926,
+      "claim": "Hinduism contains a philosophical range.",
+      "gold": "SUPPORTS",
+      "predicted": "NOT ENOUGH INFO",
+      "evidence_hit": false,
+      "seconds": 0.11435816700395662
+    },
+    {
+      "id": 72756,
+      "claim": "John S. McCain Jr. grew up in New York.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.1072460410068743
+    },
+    {
+      "id": 150508,
+      "claim": "Guns N' Roses is an American heavy metal band.",
+      "gold": "NOT ENOUGH INFO",
+      "predicted": "NOT ENOUGH INFO",
+      "evidence_hit": null,
+      "seconds": 0.11002070899849059
+    },
+    {
+      "id": 24595,
+      "claim": "One Dance reached number one in the Netherlands.",
+      "gold": "SUPPORTS",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.11615133300074376
+    },
+    {
+      "id": 158219,
+      "claim": "Brown University's main campus has been located in the College Hill Historic District of Providence since 1912.",
+      "gold": "NOT ENOUGH INFO",
+      "predicted": "REFUTES",
+      "evidence_hit": null,
+      "seconds": 0.11425354200036963
+    },
+    {
+      "id": 201576,
+      "claim": "A thunderstorm requires the presence of lightning.",
+      "gold": "SUPPORTS",
+      "predicted": "NOT ENOUGH INFO",
+      "evidence_hit": false,
+      "seconds": 0.10289662499417318
+    },
+    {
+      "id": 150536,
+      "claim": "The Cyclades are in the Red Sea.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.15655533300014213
+    },
+    {
+      "id": 104650,
+      "claim": "Sleipnir is an animal.",
+      "gold": "SUPPORTS",
+      "predicted": "NOT ENOUGH INFO",
+      "evidence_hit": false,
+      "seconds": 0.1326012499994249
+    },
+    {
+      "id": 79343,
+      "claim": "Kenny Chesney is Catholic.",
+      "gold": "NOT ENOUGH INFO",
+      "predicted": "REFUTES",
+      "evidence_hit": null,
+      "seconds": 0.09235870800330304
+    },
+    {
+      "id": 174512,
+      "claim": "Red Bull Racing is a motocross racing team.",
+      "gold": "NOT ENOUGH INFO",
+      "predicted": "REFUTES",
+      "evidence_hit": null,
+      "seconds": 0.11790137499338016
+    },
+    {
+      "id": 171638,
+      "claim": "Dave Gibbons is a writer.",
+      "gold": "SUPPORTS",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.14326758399693063
+    },
+    {
+      "id": 79034,
+      "claim": "Jefferson Davis was born in Maine.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.07318012500036275
+    },
+    {
+      "id": 97011,
+      "claim": "Hebe wrestled Heracles.",
+      "gold": "NOT ENOUGH INFO",
+      "predicted": "REFUTES",
+      "evidence_hit": null,
+      "seconds": 0.10697270799573744
+    },
+    {
+      "id": 153303,
+      "claim": "EA Black Box was a picture game developer.",
+      "gold": "SUPPORTS",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.11776129200006835
+    },
+    {
+      "id": 91738,
+      "claim": "Hourglass was released just 5 weeks after Taylor's previous album.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.12128179200226441
+    },
+    {
+      "id": 152811,
+      "claim": "Stephen Hillenburg has always hated the ocean.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.13234666600328637
+    },
+    {
+      "id": 213436,
+      "claim": "The Originals (TV series) began airing on The CW on October 30, 2013.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.14814299999852665
+    },
+    {
+      "id": 46059,
+      "claim": "An exampled of a folk hero was Bhagat Singh.",
+      "gold": "SUPPORTS",
+      "predicted": "NOT ENOUGH INFO",
+      "evidence_hit": false,
+      "seconds": 0.15341570799500914
+    },
+    {
+      "id": 53025,
+      "claim": "Monetary gain can be a purpose of fraud.",
+      "gold": "SUPPORTS",
+      "predicted": "SUPPORTS",
+      "evidence_hit": false,
+      "seconds": 0.1798854580047191
+    },
+    {
+      "id": 8316,
+      "claim": "Brent Mydland was a member of the Grateful Dead.",
+      "gold": "SUPPORTS",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.12700924999808194
+    },
+    {
+      "id": 25739,
+      "claim": "Jamie Lee Curtis' father is Tony Curtis.",
+      "gold": "SUPPORTS",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.09242870799789671
+    },
+    {
+      "id": 203156,
+      "claim": "Polynesian languages include Tahitian.",
+      "gold": "SUPPORTS",
+      "predicted": "SUPPORTS",
+      "evidence_hit": false,
+      "seconds": 0.15255770800285973
+    },
+    {
+      "id": 132352,
+      "claim": "Trevor Griffiths was born in an inner city area of Boston.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.0888355409988435
+    },
+    {
+      "id": 20603,
+      "claim": "Yemen does not have an area of 203,850 square miles.",
+      "gold": "SUPPORTS",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.1311753750051139
+    },
+    {
+      "id": 29089,
+      "claim": "Sierra Morena is only an idiom.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.08799775000079535
+    },
+    {
+      "id": 151899,
+      "claim": "The Mighty Ducks was produced by Walt Disney Pictures.",
+      "gold": "NOT ENOUGH INFO",
+      "predicted": "REFUTES",
+      "evidence_hit": null,
+      "seconds": 0.10687350000080187
+    },
+    {
+      "id": 187379,
+      "claim": "Rob McElhenney is on an FX/FXX comedy series playing a character.",
+      "gold": "SUPPORTS",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.11812975000066217
+    },
+    {
+      "id": 26839,
+      "claim": "Hedda Gabler's world premiere took place at the Battle of Hastings.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.14809083299769554
+    },
+    {
+      "id": 205651,
+      "claim": "St. Anger is the eighth painting by Metallica.",
+      "gold": "NOT ENOUGH INFO",
+      "predicted": "REFUTES",
+      "evidence_hit": null,
+      "seconds": 0.15718770799867343
+    },
+    {
+      "id": 202727,
+      "claim": "The Chaperone (film) was filmed inside a film studio.",
+      "gold": "NOT ENOUGH INFO",
+      "predicted": "NOT ENOUGH INFO",
+      "evidence_hit": null,
+      "seconds": 0.10408116699545644
+    },
+    {
+      "id": 140247,
+      "claim": "The Punisher is a TV series starring Jon Bernthal.",
+      "gold": "NOT ENOUGH INFO",
+      "predicted": "NOT ENOUGH INFO",
+      "evidence_hit": null,
+      "seconds": 0.09608954199939035
+    },
+    {
+      "id": 76783,
+      "claim": "Solanum excludes horse nettles.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.08699841699854005
+    },
+    {
+      "id": 73269,
+      "claim": "The SpongeBob SquarePants Movie stars a dog.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.11032787500153063
+    },
+    {
+      "id": 187564,
+      "claim": "Dan Brown wrote a 2003 bestselling novel.",
+      "gold": "SUPPORTS",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.11151833299663849
+    },
+    {
+      "id": 200262,
+      "claim": "Quentin Tarantino's original screenplay was the basis for the film Natural Born Killers.",
+      "gold": "SUPPORTS",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.10865762500179699
+    },
+    {
+      "id": 22480,
+      "claim": "EA Black Box was based outside of Canada.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.09112749999621883
+    },
+    {
+      "id": 56860,
+      "claim": "The Bassoon King is written for Rainn Wilson.",
+      "gold": "NOT ENOUGH INFO",
+      "predicted": "REFUTES",
+      "evidence_hit": null,
+      "seconds": 0.11287591700238409
+    },
+    {
+      "id": 207521,
+      "claim": "Mel B died before releasing a song on Virgin Records.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.10785658300301293
+    },
+    {
+      "id": 74331,
+      "claim": "Bob Ross was a landscape painter.",
+      "gold": "NOT ENOUGH INFO",
+      "predicted": "REFUTES",
+      "evidence_hit": null,
+      "seconds": 0.10958716700406512
+    },
+    {
+      "id": 59630,
+      "claim": "Rage Against the Machine stopped recording.",
+      "gold": "NOT ENOUGH INFO",
+      "predicted": "NOT ENOUGH INFO",
+      "evidence_hit": null,
+      "seconds": 0.10980470800132025
+    },
+    {
+      "id": 85646,
+      "claim": "Alexandra Daddario is Japanese.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.07481679199554492
+    },
+    {
+      "id": 60008,
+      "claim": "\"Artist of the Year\" was a name given to Danny Brown by Metro Times.",
+      "gold": "SUPPORTS",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.10486437499639578
+    },
+    {
+      "id": 33270,
+      "claim": "Blue Jasmine takes place in Boston only.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.10138345800078241
+    },
+    {
+      "id": 177974,
+      "claim": "In some cultures, money is given away instead of candy when Trick-or-Treating.",
+      "gold": "SUPPORTS",
+      "predicted": "NOT ENOUGH INFO",
+      "evidence_hit": false,
+      "seconds": 0.12587837500177557
+    },
+    {
+      "id": 201757,
+      "claim": "North Vietnam was officially called the Democratic Republic of Congo.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.24133283300034236
+    },
+    {
+      "id": 212309,
+      "claim": "Mary-Kate Olsen and Ashley Olsen are also known as the Olsen twins.",
+      "gold": "SUPPORTS",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.09384820899867918
+    },
+    {
+      "id": 6539,
+      "claim": "Jack Falahee's birth year is 1989.",
+      "gold": "SUPPORTS",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.09420362499804469
+    },
+    {
+      "id": 51242,
+      "claim": "The Crips are one of the largest street gangs in India.",
+      "gold": "NOT ENOUGH INFO",
+      "predicted": "REFUTES",
+      "evidence_hit": null,
+      "seconds": 0.10063329200056614
+    },
+    {
+      "id": 66224,
+      "claim": "David Guggenheim is incapable of creating anything.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.11397633299930021
+    },
+    {
+      "id": 112295,
+      "claim": "The Road to El Dorado stars Robin Williams.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.1563929999974789
+    },
+    {
+      "id": 194580,
+      "claim": "There has been a person that has been nominated for two Emmy Awards name Kyle Maclachlan.",
+      "gold": "SUPPORTS",
+      "predicted": "NOT ENOUGH INFO",
+      "evidence_hit": false,
+      "seconds": 0.12187799999810522
+    },
+    {
+      "id": 181197,
+      "claim": "Southpaw was the fighting style Mike Tyson used.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.09250449999672128
+    },
+    {
+      "id": 92586,
+      "claim": "Firefox is one of the most popular web browsers.",
+      "gold": "SUPPORTS",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.09390729200094938
+    },
+    {
+      "id": 1076,
+      "claim": "James Jones missed the finals once.",
+      "gold": "SUPPORTS",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.10719324999809032
+    },
+    {
+      "id": 42344,
+      "claim": "Penguin Books demonstrated that there are no audiences for serious books.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.10445333300594939
+    },
+    {
+      "id": 199257,
+      "claim": "Prince Charles and Lady Diana's wedding ceremony was a traditional Church of England service.",
+      "gold": "NOT ENOUGH INFO",
+      "predicted": "REFUTES",
+      "evidence_hit": null,
+      "seconds": 0.11764674999722047
+    },
+    {
+      "id": 218100,
+      "claim": "The Indian National Congress was founded during the American Revolution.",
+      "gold": "NOT ENOUGH INFO",
+      "predicted": "REFUTES",
+      "evidence_hit": null,
+      "seconds": 0.09954020800068974
+    },
+    {
+      "id": 16376,
+      "claim": "Maximum Overdrive is a 1986 science fiction action horror comedy film.",
+      "gold": "SUPPORTS",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.10832433300674893
+    },
+    {
+      "id": 53973,
+      "claim": "Part of Dilwale Dulhania Le Jayenge was shot in Shanghai.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.14859699999942677
+    },
+    {
+      "id": 201114,
+      "claim": "Marcus Bentley is incapable of being a voice-over artist.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.09555891699710628
+    },
+    {
+      "id": 144602,
+      "claim": "Tim Roth is not an English director.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.11631879200285766
+    },
+    {
+      "id": 26281,
+      "claim": "Legendary Entertainment has been a subsidiary of Wanda Group since 2016.",
+      "gold": "SUPPORTS",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.09871816700615454
+    },
+    {
+      "id": 131597,
+      "claim": "\"Dog\" is Duane Chapman's nickname.",
+      "gold": "SUPPORTS",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.0944666249997681
+    },
+    {
+      "id": 90981,
+      "claim": "Lucy Hale works in the entertainment industry.",
+      "gold": "SUPPORTS",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.10967304200312356
+    },
+    {
+      "id": 84393,
+      "claim": "The Greek language is spoken in the United Kingdom.",
+      "gold": "NOT ENOUGH INFO",
+      "predicted": "REFUTES",
+      "evidence_hit": null,
+      "seconds": 0.10829520900006173
+    },
+    {
+      "id": 225814,
+      "claim": "Chinatown is a 1974 Chevy.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.12522191700554686
+    },
+    {
+      "id": 86568,
+      "claim": "In the End was the only song written by Linkin Park.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.11326083400490461
+    },
+    {
+      "id": 1709,
+      "claim": "The IPhone 4 was marketed by Apple Inc..",
+      "gold": "SUPPORTS",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.09537841700512217
+    },
+    {
+      "id": 134442,
+      "claim": "A parent of Jed Whedon was a screenwriter.",
+      "gold": "SUPPORTS",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.1057269169978099
+    },
+    {
+      "id": 195085,
+      "claim": "Albert S. Ruddy is born in China.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.1851746250031283
+    },
+    {
+      "id": 8247,
+      "claim": "Moonlight's filming began in a store.",
+      "gold": "NOT ENOUGH INFO",
+      "predicted": "REFUTES",
+      "evidence_hit": null,
+      "seconds": 0.11620037499960745
+    },
+    {
+      "id": 31905,
+      "claim": "Lost lasted from September 22, 2004 to May 23, 2010.",
+      "gold": "SUPPORTS",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.09345745800237637
+    },
+    {
+      "id": 223288,
+      "claim": "Mickey Thompson has yet to participate in a Baja 1000.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.10203429200191749
+    },
+    {
+      "id": 108163,
+      "claim": "SpongeBob SquarePants is a long running television series.",
+      "gold": "NOT ENOUGH INFO",
+      "predicted": "REFUTES",
+      "evidence_hit": null,
+      "seconds": 0.12097987499873852
+    },
+    {
+      "id": 192032,
+      "claim": "American Library Association has more than five legal suits.",
+      "gold": "NOT ENOUGH INFO",
+      "predicted": "NOT ENOUGH INFO",
+      "evidence_hit": null,
+      "seconds": 0.19616429100278765
+    },
+    {
+      "id": 20782,
+      "claim": "John S. McCain Jr. graduated from the U.S. Naval Academy.",
+      "gold": "SUPPORTS",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.12711249999847496
+    },
+    {
+      "id": 180578,
+      "claim": "Swordfish (film) is a film that is about a type of person.",
+      "gold": "SUPPORTS",
+      "predicted": "NOT ENOUGH INFO",
+      "evidence_hit": false,
+      "seconds": 0.17397895800240804
+    },
+    {
+      "id": 124707,
+      "claim": "53 879 animals counted as Romani people in the Republic of Macedonia.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.1280601660037064
+    },
+    {
+      "id": 184047,
+      "claim": "Kenneth Lonergan is a songwriter.",
+      "gold": "NOT ENOUGH INFO",
+      "predicted": "REFUTES",
+      "evidence_hit": null,
+      "seconds": 0.09420024999417365
+    },
+    {
+      "id": 78282,
+      "claim": "PacSun barely sells products designed for teens.",
+      "gold": "REFUTES",
+      "predicted": "NOT ENOUGH INFO",
+      "evidence_hit": false,
+      "seconds": 0.1351644170063082
+    },
+    {
+      "id": 126064,
+      "claim": "Charles Howard Hinton worked in his home country of Angora for the majority of his life.",
+      "gold": "NOT ENOUGH INFO",
+      "predicted": "REFUTES",
+      "evidence_hit": null,
+      "seconds": 0.18252099999517668
+    },
+    {
+      "id": 74732,
+      "claim": "Prague's historic center was first included in the UNESCO list of World Heritage Sites in 1937.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.16382379199785646
+    },
+    {
+      "id": 108227,
+      "claim": "Jack Falahee died in February.",
+      "gold": "NOT ENOUGH INFO",
+      "predicted": "REFUTES",
+      "evidence_hit": null,
+      "seconds": 0.14296166600252036
+    },
+    {
+      "id": 4040,
+      "claim": "Liverpool is independent of McDonald's.",
+      "gold": "NOT ENOUGH INFO",
+      "predicted": "REFUTES",
+      "evidence_hit": null,
+      "seconds": 0.11023329199815635
+    },
+    {
+      "id": 218471,
+      "claim": "The Hanford Site contributes to the LIGO Hanford Observatory.",
+      "gold": "SUPPORTS",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.13271491700288607
+    },
+    {
+      "id": 36308,
+      "claim": "Marco Polo left a chronicle.",
+      "gold": "SUPPORTS",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.10952966700278921
+    },
+    {
+      "id": 153118,
+      "claim": "Edward Cullen is exclusively in books.",
+      "gold": "NOT ENOUGH INFO",
+      "predicted": "REFUTES",
+      "evidence_hit": null,
+      "seconds": 0.11160100000415696
+    },
+    {
+      "id": 134349,
+      "claim": "Sam Claflin is a person.",
+      "gold": "SUPPORTS",
+      "predicted": "NOT ENOUGH INFO",
+      "evidence_hit": false,
+      "seconds": 0.13100504099566024
+    },
+    {
+      "id": 30234,
+      "claim": "The Love Club EP is an album.",
+      "gold": "REFUTES",
+      "predicted": "REFUTES",
+      "evidence_hit": false,
+      "seconds": 0.09170570899732411
+    },
+    {
+      "id": 9277,
+      "claim": "Pocahontas became, in her lifetime, a kind of celebrity and was noted in the context and culture she lived in.",
+      "gold": "NOT ENOUGH INFO",
+      "predicted": "NOT ENOUGH INFO",
+      "evidence_hit": null,
+      "seconds": 0.12444345800031442
+    },
+    {
+      "id": 102161,
+      "claim": "Shannon Lee is not American.",
+      "gold": "REFUTES",
+      "predicted": "NOT ENOUGH INFO",
+      "evidence_hit": false,
+      "seconds": 0.0848690839993651
+    },
+    {
+      "id": 182690,
+      "claim": "Nina Jacobson was president of a company that has no subsidiary.",
+      "gold": "NOT ENOUGH INFO",
+      "predicted": "REFUTES",
+      "evidence_hit": null,
+      "seconds": 0.09030904199607903
+    },
+    {
+      "id": 70310,
+      "claim": "The Maze Runner is a motion picture.",
+      "gold": "SUPPORTS",
+      "predicted": "NOT ENOUGH INFO",
+      "evidence_hit": false,
+      "seconds": 0.1359411659941543
+    }
+  ]
+}

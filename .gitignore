@@ -1,0 +1,19 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.streamlit/secrets.toml
+
+# Original dataset archive
+data/wiki-pages.zip
+
+# Hugging Face model cache
+.cache/
+models/data/wiki-pages.zip
+.venv/
+__pycache__/
+*.pyc
+.env
+.streamlit/secrets.toml
