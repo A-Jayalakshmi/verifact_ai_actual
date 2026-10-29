@@ -2,7 +2,8 @@ from pathlib import Path
 import json
 import pandas as pd
 import streamlit as st
-from verifact.core import read_corpus, Retriever, TFIDFRetriever, Verifier, explain, generate_explanation, evaluate, source_url
+from core import read_corpus, Retriever, TFIDFRetriever, Verifier, explain, generate_explanation, evaluate, source_url
+from adaptive_retrieval import choose_retriever
 
 st.set_page_config(page_title='VeriFact AI | Evidence-based verification',page_icon='🔎',layout='wide')
 st.title('🔎 VeriFact AI')
@@ -23,9 +24,15 @@ def nli():return Verifier()
 meta=json.loads((DATA/'metadata.json').read_text()) if (DATA/'metadata.json').exists() else {}
 with st.sidebar:
     st.header('Configuration')
-    mode=st.radio('Retriever',['Semantic (FAISS)','TF-IDF'])
     k=st.slider('Top-k evidence',1,10,5)
-    generative=st.toggle('Generative explanation (FLAN-T5)',value=False,help='Downloads another model. Its output is not a verified factual source.')
+    generative = st.toggle(
+    'Experimental AI explanation',
+    value=False,
+    help=(
+        'Uses FLAN-T5 to generate an optional explanation. '
+        'The generated text may contain unsupported details.'
+    )
+)
     st.divider()
     st.metric('Indexed evidence sentences',f'{len(corpus()):,}')
     st.metric('Selected Wikipedia pages',f'{meta.get("pages_requested",0):,}')
@@ -33,25 +40,108 @@ with st.sidebar:
 
 t1,t2,t3=st.tabs(['Verify a claim','Evaluation','Corpus & methodology'])
 with t1:
-    claim=st.text_area('Enter a factual claim',placeholder='Example: Albert Einstein was born in Germany.',height=95)
-    if st.button('Verify claim',type='primary'):
-        if not claim.strip(): st.warning('Please enter a claim.')
+    claim = st.text_area(
+        'Enter a factual claim',
+        placeholder='Example: Albert Einstein was born in Germany.',
+        height=95
+    )
+
+    if st.button('Verify claim', type='primary'):
+        if not claim.strip():
+            st.warning('Please enter a claim.')
         else:
             with st.spinner('Retrieving and verifying evidence…'):
-                retriever=semantic() if mode.startswith('Semantic') else lexical()
-                evidence=retriever.search(claim,k)
-                result=nli().infer(claim,evidence)
-            labels={'SUPPORTS':'Supported','REFUTES':'Contradicted','NOT ENOUGH INFO':'Insufficient Evidence'}
-            st.subheader(labels[result['label']]);st.caption('Decision from NLI thresholds; model scores are not calibrated truth probabilities.')
-            st.write('**Grounded explanation:**',explain(claim,result))
+
+                selected_mode, selection_reason = choose_retriever(claim)
+
+                retriever = (
+                    semantic()
+                    if selected_mode == "Semantic (FAISS)"
+                    else lexical()
+                )
+
+                # Step 1: Retrieve evidence using the automatically selected method.
+                evidence = retriever.search(claim, k)
+
+                # Step 2: Verify the retrieved evidence.
+                result = nli().infer(claim, evidence)
+
+                # Step 3: If TF-IDF cannot establish a verdict,
+                # try semantic retrieval as a fallback.
+                if (
+                    selected_mode == "TF-IDF"
+                    and result["label"] == "NOT ENOUGH INFO"
+                ):
+                    semantic_evidence = semantic().search(claim, k)
+                    semantic_result = nli().infer(claim, semantic_evidence)
+
+                    # Use the semantic result only if it establishes a verdict.
+                    if semantic_result["label"] != "NOT ENOUGH INFO":
+                        evidence = semantic_evidence
+                        result = semantic_result
+                        selected_mode = "Semantic (FAISS)"
+                        selection_reason = (
+                            "TF-IDF could not establish a verdict; "
+                            "semantic retrieval was used as a fallback."
+                        )
+                    else:
+                        selection_reason += (
+                            " Semantic fallback was also checked, "
+                            "but neither method established sufficient evidence."
+                        )
+
+
+            labels = {
+                'SUPPORTS': 'Supported',
+                'REFUTES': 'Contradicted',
+                'NOT ENOUGH INFO': 'Insufficient Evidence'
+            }
+
+            st.subheader(labels[result['label']])
+
+            st.caption(
+                'Decision from NLI thresholds; model scores '
+                'are not calibrated truth probabilities.'
+            )
+
+            st.write(
+                '**Grounded explanation:**',
+                explain(claim, result)
+            )
+
+            st.caption(
+                f"Evidence search selected automatically: "
+                f"{selected_mode}. Reason: {selection_reason}."
+            )
+
             if generative:
-                with st.spinner('Generating an optional grounded explanation…'):
-                    st.write('**Generated explanation (check against sources):**',generate_explanation(claim,result))
+                with st.spinner(
+                    'Generating an optional grounded explanation…'
+                ):
+                    st.write(
+                        '**Generated explanation (check against sources):**',
+                        generate_explanation(claim, result)
+                    )
+
             st.subheader('Retrieved evidence and NLI probabilities')
-            for i,e in enumerate(result['evidence'],1):
-                with st.expander(f'{i}. {e["page"].replace("_"," ")} · retrieval {e["retrieval_score"]:.3f}',expanded=i==1):
-                    st.write(e['text']); st.markdown(f'[Wikipedia article]({source_url(e["page"])})')
-                    st.caption(f'Entailment {e["entailment"]:.3f} | Contradiction {e["contradiction"]:.3f} | Neutral {e["neutral"]:.3f}')
+
+            for i, e in enumerate(result['evidence'], 1):
+                with st.expander(
+                    f'{i}. {e["page"].replace("_", " ")} '
+                    f'· retrieval {e["retrieval_score"]:.3f}',
+                    expanded=i == 1
+                ):
+                    st.write(e['text'])
+
+                    st.markdown(
+                        f'[Wikipedia article]({source_url(e["page"])})'
+                    )
+
+                    st.caption(
+                        f'Entailment {e["entailment"]:.3f} | '
+                        f'Contradiction {e["contradiction"]:.3f} | '
+                        f'Neutral {e["neutral"]:.3f}'
+                    )
 with t2:
     st.subheader('Independent FEVER development evaluation')
     st.write('Development claims are distinct from training claims. Wikipedia pages were selected using training evidence only. Metrics are calculated live; no fabricated accuracy values.')
@@ -60,11 +150,22 @@ with t2:
         cases=read_corpus(cases_path)
         st.caption(f'{len(cases)} FEVER development cases available. Evaluation may take several minutes on CPU.')
         limit=st.slider('Number of cases to evaluate',min_value=3,max_value=len(cases),value=min(30,len(cases)),step=1)
+        evaluation_mode = st.selectbox(
+            'Evaluation retrieval method',
+            ['Semantic (FAISS)', 'TF-IDF']
+        )
+
         if st.button('Run evaluation'):
             with st.spinner('Evaluating claims…'):
-                ret=semantic() if mode.startswith('Semantic') else lexical()
-                metrics,rows=evaluate(cases,ret,nli(),k,limit)
-            st.session_state['evaluation']=(metrics,rows)
+                ret = (
+                    semantic()
+                    if evaluation_mode == 'Semantic (FAISS)'
+                    else lexical()
+                )
+
+                metrics, rows = evaluate(cases, ret, nli(), k, limit)
+
+            st.session_state['evaluation'] = (metrics, rows)
         if 'evaluation' in st.session_state:
             m,rows=st.session_state['evaluation']
             a,b,c,d=st.columns(4)
